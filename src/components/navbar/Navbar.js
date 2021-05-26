@@ -1,11 +1,12 @@
 import './Navbar.css';
+import { Link } from 'react-router-dom';
 
-function Navbar() {
+function Navbar(props) {
     return (
         <nav className="navbar">
             <ul className="list">
-                <li className="listItem"><a href="#">Store</a></li>
-                <li className="listItem"><img src="icons/cart.png" width="20px"/><a href="#">Cart (0)</a></li>
+                <li className="listItem"><Link to="/">Store</Link></li>
+                <li className="listItem"><img src="icons/cart.png" width="20px"/><Link to="/cart">Cart ({props.cartItemsNumber})</Link></li>
             </ul>
         </nav>
     )

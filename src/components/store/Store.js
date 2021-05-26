@@ -1,6 +1,7 @@
 import './Store.css';
+import StoreCart from '../storeCart/StoreCart'
 
-function Store() {
+function Store(props) {
     const items = [
         {
             title: 'Bike',
@@ -59,17 +60,7 @@ function Store() {
     ]
 
     const storeItems = items.map((item, idx) => (
-        <div className="card" key={idx}>
-            <img src={item.photo} className="image"/>
-            <div className="textContainer">
-                <span className="title">{item.title}</span>
-                <span className="description">{item.describe}</span>
-                <div className="addContainer">
-                    <span className="price">{item.price}$</span>
-                    <button className="add"><img src="/icons/plus.png" width="30px"/></button>
-                </div>
-            </div>
-        </div>
+       <StoreCart key={idx} item={item} addItem={props.addItem}></StoreCart>
     ))
 
     return (
